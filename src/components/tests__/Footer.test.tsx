@@ -1,16 +1,12 @@
-import type { Config } from 'jest';
+import { render, screen } from '@testing-library/react';
+import Footer from '../Footer';
 
-const config: Config = {
-  testEnvironment: 'jsdom', // Necesario para pruebas en React
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest' // Transforma archivos TypeScript y TSX
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'], // Extensiones soportadas
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Configuración adicional para Jest DOM
-  collectCoverage: true, // Habilitar cobertura
-  collectCoverageFrom: ['src/**/*.{ts,tsx}'], // Archivos a incluir en la cobertura
-  coveragePathIgnorePatterns: ['/node_modules/', 'vite-env.d.ts'], // Ignorar archivos
-  coverageReporters: ['text', 'lcov']
-};
+describe('Footer Component', () => {
+  it('renders the footer content', () => {
+    render(<Footer />);
+    expect(
+      screen.getByText(/© 2025 Información sobre México | Creado por chavapardo/i)
+    ).toBeInTheDocument();
+  });
+});
 
-export default config;

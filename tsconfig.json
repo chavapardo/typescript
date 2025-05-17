@@ -1,18 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ESNext", // Target moderno
-    "module": "ESNext", // Usar módulos ESNext
-    "jsx": "react-jsx", // Soporte para JSX
-    "esModuleInterop": true, // Permitir importaciones como React
-    "strict": true, // Opcional: Habilitar comprobaciones estrictas
-    "moduleResolution": "Node", // Resolver módulos como Node.js
-    "skipLibCheck": true, // Ignorar chequeo de tipos en node_modules
-    "forceConsistentCasingInFileNames": true, // Forzar consistencia en nombres de archivo
-    "baseUrl": ".", // Base para rutas relativas
-    "paths": {
-      "@/*": ["src/*"] // Alias para rutas absolutas
-    }
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "types": [
+      "jest",
+      "@testing-library/jest-dom"
+    ]
   },
-  "include": ["src"], // Archivos incluidos
-  "exclude": ["node_modules", "dist"] // Archivos excluidos
+  "include": [
+    "src",
+    "jest.setup.ts"
+  ]
 }
